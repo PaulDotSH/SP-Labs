@@ -12,6 +12,11 @@ public class Chapter {
         this.subChapterList = new ArrayList<SubChapter>();
     }
 
+    public  Chapter(Chapter other){
+        this.name = other.name;
+        this.subChapterList = new ArrayList<>(other.subChapterList);
+    }
+
     public void print(){
         for (SubChapter subChapter:
                 subChapterList) {
