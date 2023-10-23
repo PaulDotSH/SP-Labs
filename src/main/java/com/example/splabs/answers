@@ -1,8 +1,0 @@
-Lab 2
-Ex 6
----------
-a. 3 fields
-b. 2 methods
-c. Depends on the language
-d. Depends on the language
-e. Definitely public since private has NO REASON to exist especially when you DO NOT modify the rest of the state when you modify a variable.
