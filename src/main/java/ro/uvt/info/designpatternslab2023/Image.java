@@ -1,39 +1,36 @@
 package ro.uvt.info.designpatternslab2023;
 
 
-import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-public class Image extends Element {
-    private String imageName;
+public class Image extends Element implements Picture {
+    private String url;
+    private String imageContent;
 
-    public Image(String imageName) {
-        this.imageName = imageName;
+    public Image(String url) {
+        this.url = url;
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
     }
     public Image(Image other){
-        imageName = other.imageName;
+        url = other.url;
     }
 
     public void print(){
-        System.out.println("Image with name: " + imageName);
-    }
-
-    @Override
-    public void add(Element e) {
-        throw new IllegalStateException("Cannot add an element");
-    }
-
-    @Override
-    public void remove(Element e) {
-        throw new IllegalStateException("Cannot remove an element");
-    }
-
-    @Override
-    public Element get(int index) {
-        throw new IllegalStateException("Cannot get an element");
+        System.out.println("Image with name: " + url);
     }
 
     @Override
     public Element clone() {
         return new Image(this);
+    }
+
+    @Override
+    public String getUrl() {
+        return url;
     }
 }

@@ -1,7 +1,6 @@
 package ro.uvt.info.designpatternslab2023;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Section extends Element {
     protected String title;

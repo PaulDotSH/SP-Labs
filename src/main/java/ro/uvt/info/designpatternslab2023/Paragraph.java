@@ -1,7 +1,5 @@
 package ro.uvt.info.designpatternslab2023;
 
-import java.util.List;
-
 public class Paragraph extends Element {
     private String text;
     public Paragraph(String text) {
