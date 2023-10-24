@@ -10,31 +10,36 @@ public class DesignPatternsLab2023Application {
 
     public static void main(String[] args) {
 //		SpringApplication.run(DesignPatternsLab2023Application.class, args);
-		Book noapteBuna = lab3();
-        noapteBuna.print();
+        lab4();
     }
 
 
-    private static Book lab3() {
-        Book noapteBuna = new Book("Noapte buna, copii!");
-        Author rpGheo = new Author("Radu Pavel Gheo");
-        Section cap1 = new Section("Capitolul 1");
-        Section cap11 = new Section("Capitolul 1.1");
-        Section cap111 = new Section("Capitolul 1.1.1");
-        Section cap1111 = new Section("Subchapter 1.1.1.1");
-
-        noapteBuna.addAuthor(rpGheo);
-        noapteBuna.add(new Paragraph("Multumesc celor care ..."));
-        cap1111.add(new Image("Image subchapter 1.1.1.1"));
-        cap111.add(new Paragraph("Text from subchapter 1.1.1"));
-        cap111.add(cap1111);
-        cap11.add(new Paragraph("Text from subchapter 1.1"));
-        cap11.add(cap111);
-        cap1.add(new Paragraph("Moto capitol"));
-        cap1.add(cap11);
-        noapteBuna.add(cap1);
-
-        return noapteBuna;
+    private static void lab4(){
+        long startTime = System.currentTimeMillis();
+        ImageProxy img1 = new ImageProxy("Pamela Anderson");
+        ImageProxy img2 = new ImageProxy("Kim Kardashian");
+        ImageProxy img3 = new ImageProxy("Kirby Griffin");
+        Section playboyS1 = new Section("Front Cover");
+        playboyS1.add(img1);
+        Section playboyS2 = new Section("Summer Girls");
+        playboyS2.add(img2);
+        playboyS2.add(img3);
+        Book playboy = new Book("Playboy");
+        playboy.add(playboyS1);
+        playboy.add(playboyS2);
+        long endTime = System.currentTimeMillis();
+        System.out.println("Creation of the content took " + (endTime -
+                startTime) + " milliseconds");
+        startTime = System.currentTimeMillis();
+        playboyS1.print();
+        endTime = System.currentTimeMillis();
+        System.out.println("Printing of the section 1 took " + (endTime -
+                startTime) + " milliseconds");
+        startTime = System.currentTimeMillis();
+        playboyS1.print();
+        endTime = System.currentTimeMillis();
+        System.out.println("Printing again the section 1 took " + (endTime -
+                startTime) + " milliseconds");
     }
 
 }
